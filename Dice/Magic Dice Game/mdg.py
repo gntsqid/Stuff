@@ -11,7 +11,8 @@ def prompt():
   if word == "roll":
     return d6()
   else:
-    word = input("That wasn't right...try again: ")
+    print("That wasn't quite right...try again..\n")
+    word = prompt()
 def check(num):
   flag = False
   print("flag is set from True to " + str(flag) + '!')
