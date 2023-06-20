@@ -20,7 +20,7 @@ def check(num):
 def intro():
   name = input("Ready to play? Tell me your name: ")
   print("Hi " + name + "! Let's get started.")
-  print("We both start with " + health + " lives, roll the dice to lose, gain, or inflict damage on me.")
+  print("We both start with " + str(health) + " lives, roll the dice to lose, gain, or inflict damage on me.")
   print("Last one standing wins...")
   print("Good Luck!\n")
   return name
