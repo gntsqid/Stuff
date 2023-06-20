@@ -14,7 +14,7 @@ def prompt():
     word = input("That wasn't right...try again: ")
 def check(num):
   flag = False
-  print("flag is set from True to + flag + "!")
+  print("flag is set from True to + flag + '!')
   return flag
   
 def intro():
