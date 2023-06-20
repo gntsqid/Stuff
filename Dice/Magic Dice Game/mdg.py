@@ -1,32 +1,28 @@
 import random
 
+health = 10
+
 def d6():
   rng = random.SystemRandom()
   return rng.randint(1, 6)
-"""
-def scoreKeeper(player, score):
-  rows = []
-  with open('score.csv', 'r', newline='') as csvfile:
-    reader = csv.reader(csvfile)
-    for row in reader:
-      rows.append(row)
-  
-  with open('score.csv', 'w', newline='', encoding='utf-8') as csvfile:
-    writer = csv.writer(csvfile)
-    for row in rows:
-      writer.write(row)
-"""
+
 def prompt(flag):
   print("flag is set from " + str(flag) + " to false!")
   return False
 
+def intro():
+  name = input("Ready to play? Tell me your name: ")
+  print("Hi " + name + "! Let's get started.")
+  print("We both start with 5 lives, roll the dice to lose, gain, or inflict damage on me."
+  print("Good Luck!\n")
+  return name
+
 #plays the game
 def init():
   flag = True
-  name = input("Ready to play? Tell me your name: ")
-  print("Hi " + name + "! Let's get started.")
+  name = intro()
   while flag == True:
-    flag = prompt(flag)
-  print(d6())
+    flag = prompt()
+  print("Game Over")
 
 init()
