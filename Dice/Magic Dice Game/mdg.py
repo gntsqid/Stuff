@@ -24,7 +24,7 @@ def prompt(flag):
 def init():
   flag = True
   name = input("Ready to play? Tell me your name: ")
-  print("Hi " + name + '! Let's get started.)
+  print("Hi " + name + "! Let's get started.")
   while flag == True:
     flag = prompt(flag)
   print(d6())
