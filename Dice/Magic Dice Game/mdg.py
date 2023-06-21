@@ -10,8 +10,19 @@ def d6():
 
 def checkHealth():
   global playerHealth 
-  global enemyHealth 
+  global winner
   if playerHealth <= 0:
+    winner = "Computer"
+    return False
+  else: 
+    return True
+
+def checkEnemyHealth(): 
+  global enemyHealth 
+  global winner
+  global name
+  winner = name
+  if enemyHealth  <= 0:
     winner = "Computer"
     return False
   else: 
@@ -25,7 +36,8 @@ def checkRoll(roll):
       playerHealth -= 1
       print("That looks like it's going to leave a mark!")
     case 2:
-      print("testing 2")
+      playerHealth -= 2
+      print("Salt the wound!")
     case 3:
       print("Wild card time baby!\n Let's gooooo!")
       checkRoll(d6())
@@ -40,9 +52,13 @@ def checkRoll(roll):
       enemyHealth -= 1
       print("Agh I've been wounded!")
   print("You have " + str(playerHealth) + " lives left.")
+  print("I have " + str(enemyHealth) + " lives left.")
   print("\n")
   
 def playerTurn():
+  result = checkHealth()
+  if result == False:
+    return result
   word = input("Type roll when you're ready to go: ")
   roll = d6()
   if word == "roll":
@@ -54,8 +70,16 @@ def playerTurn():
     print("That wasn't quite right...try again..\n")
     word = playerTurn()
 
+def enemyTurn():
+  result = checkEnemyHealth()
+  if result == false:
+    return result
+  roll = d6()
+  print("I rolled " + str(roll) + "!")
+  checkRoll(roll)
+
 def intro():
-  name = input("Ready to play? Tell me your name: ")
+  global name = input("Ready to play? Tell me your name: ")
   print("Hi " + name + "! Let's get started.")
   print("We both start with " + str(playerHealth) + " lives, roll the dice to lose, gain, or inflict damage on me.")
   print("Last one standing wins...")
@@ -71,6 +95,8 @@ def init():
   name   = intro()
   while flag == True:
     flag = playerTurn()
+    if flag == True:
+      flag = enemyTurn()
   print(winner + " won!")
   print("Game Over")
 
