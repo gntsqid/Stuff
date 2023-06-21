@@ -39,7 +39,7 @@ def checkRoll(roll):
     case 6:
       enemyHealth -= 1
       print("Agh I've been wounded!")
-  print("You have " + playerHealth + " lives left.")
+  print("You have " + str(playerHealth) + " lives left.")
   print("\n")
   
 def playerTurn():
