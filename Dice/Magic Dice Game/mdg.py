@@ -20,8 +20,8 @@ def checkHealth():
 def checkEnemyHealth(): 
   global enemyHealth 
   global winner
-  global name
-  winner = name
+  global foo
+  winner = foo
   if enemyHealth  <= 0:
     winner = "Computer"
     return False
@@ -72,14 +72,18 @@ def playerTurn():
 
 def enemyTurn():
   result = checkEnemyHealth()
-  if result == false:
+  if result == False:
     return result
   roll = d6()
   print("I rolled " + str(roll) + "!")
   checkRoll(roll)
+  result = checkEnemyHealth()
+  return result
 
 def intro():
-  global name = input("Ready to play? Tell me your name: ")
+  name = input("Ready to play? Tell me your name: ")
+  global foo
+  foo = name
   print("Hi " + name + "! Let's get started.")
   print("We both start with " + str(playerHealth) + " lives, roll the dice to lose, gain, or inflict damage on me.")
   print("Last one standing wins...")
