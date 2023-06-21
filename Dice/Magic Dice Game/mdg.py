@@ -1,8 +1,5 @@
 import random
 
-global playerHealth 
-global enemyHealth 
-global winner
 playerHealth = 5
 enemyHealth  = 5
 winner = ""
@@ -12,6 +9,8 @@ def d6():
   return rng.randint(1, 6)
 
 def checkHealth():
+  global playerHealth 
+  global enemyHealth 
   if playerHealth <= 0:
     winner = "Computer"
     return False
@@ -19,6 +18,8 @@ def checkHealth():
     return True
 
 def checkRoll(roll):
+  global playerHealth 
+  global enemyHealth 
   match roll:
     case 1:
       playerHealth -= 1
@@ -38,7 +39,9 @@ def checkRoll(roll):
     case 6:
       enemyHealth -= 1
       print("Agh I've been wounded!")
-
+  print("You have " + playerHealth + " lives left.")
+  print("\n")
+  
 def playerTurn():
   word = input("Type roll when you're ready to go: ")
   roll = d6()
@@ -61,13 +64,15 @@ def intro():
 
 #plays the game
 def init():
+  global playerHealth 
+  global enemyHealth 
+  global winner
   flag   = True
   name   = intro()
   while flag == True:
     flag = playerTurn()
   print(winner + " won!")
   print("Game Over")
-  
 
 init()
 # something is wrong here...need to fix it so it checks both player and enemy health,
