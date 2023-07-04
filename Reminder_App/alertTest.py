@@ -1,7 +1,7 @@
 import json
 
 def read_tasks():
-    # for my windows desktop: C:\Users\Steven\Desktop\Python\tasks.json
+    # with open(r'C:\Users\Steven\Desktop\Python\tasks.json', 'r') as f:    # for windows
     with open('tasks.json', 'r') as f:
         tasks = json.load(f)
     return tasks
