@@ -15,6 +15,23 @@
       "west": null,
       "south": "A3",
       "east": "B2"
+    },
+    {
+      "tile": "A3",
+      "terrain": "desert",
+      "north": "A2",
+      "west": null,
+      "south": "A4",
+      "east": "B3"
+    },
+    {
+      "tile": "A4",
+      "terrain": "oasis",
+      "item": "shield",
+      "north": "A3",
+      "west": null,
+      "south": null,
+      "east": "B4"
     }
   ]
 }
