@@ -9,15 +9,14 @@ def write_json(data, filename='tasks.json'):
 def add_task():
     with open('tasks.json') as json_file:
         data = json.load(json_file)
-        temp = data['tasks']
 
         # python object to be appended
         new_task = {"task": task_entry.get(),
                     "date": date_entry.get(),
                     "time": time_entry.get()}
 
-        # appending data to emp_details
-        temp.append(new_task)
+        # appending data
+        data.append(new_task)
 
     write_json(data)
 
@@ -47,3 +46,4 @@ add_button = Button(window, text="Add Task", command=add_task)
 add_button.grid(column=0, row=3)
 
 window.mainloop()
+
