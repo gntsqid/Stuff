@@ -1,0 +1,9 @@
+do {
+    Write-Host "Pinging..."
+    $ping = Test-Connection -ComputerName "test.local" -Count 1 -ErrorAction SilentlyContinue
+    if ($ping.StatusCode -eq 0) {
+        Write-Host "Host is reachable."
+        break
+    }
+    Start-Sleep -Seconds 3
+} until ($false)
