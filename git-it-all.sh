@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# NOTE: Needs to be a cron job
+# NOTE: Needs to be a cron job and assumes credential store
 
 # Start from the home directory
 start_directory="$HOME"
